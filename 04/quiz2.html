@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>source</title>
+        <style>
+            #board {
+                width: 400px;
+                height: 400px;
+                font-size: 0px;
+            }
+
+            span {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+            }
+
+            .black {
+                background-color: black;
+            }
+
+            .red {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="board"></div>
+        <script>
+            var board = document.getElementById("board");
+            var chess = []
+            var index = 0, selection = { index: -1, className: "" };
+            for (var i = 0; i < 4; i++){
+                for (var j = 0; j < 4; j++){
+                    chess[index] = document.createElement("span");
+                    chess[index].className = (i + j) % 2 == 0 ? "black" : "white";
+
+                    const temp = index;
+                    chess[index].addEventListener("click", function() {
+                        if (selection.index != -1) {
+                            chess[selection.index].className = selection.className;
+                        }
+                        
+                        selection.index = temp;
+                        selection.className = chess[temp].className;
+                        chess[temp].className = "red";
+                    });
+
+                    document.getElementById("board").appendChild(chess[index]);
+
+                    index++;
+                }
+            }
+        </script>
+    </body>
+</html>
