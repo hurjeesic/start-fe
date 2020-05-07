@@ -1,0 +1,23 @@
+{
+  "name": "start-fe",
+  "version": "1.0.0",
+  "description": "2020년도 제주대학교 고급웹개발론 수업 실습",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hurjeesic/start-fe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hurjeesic/start-fe/issues"
+  },
+  "homepage": "https://github.com/hurjeesic/start-fe#readme"
+}
