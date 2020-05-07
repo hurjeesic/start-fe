@@ -10,29 +10,28 @@
 // input#num dom 객체의 값을 받아와서 숫자로 변환 후
 // isNaN함수로 숫자인지를 확인 후 결정(true: 경고 메시지, false: 내용 출력)
 
-var result;
-
-window.onload = function() {
-    result = document.getElementById("result");
-    let btn = document.getElementById("btn");
-
-    btn.addEventListener('click', function() {
-        let input = parseInt(document.getElementById("num").value);
-
-        if (isNaN(input)) {
-            alert("숫자를 입력해주세요.");
-        }
-        else {
-            result.innerHTML = getGugudanStr(input);
-        }
-    });
-}
+let result;
 
 function getGugudanStr(dan) {
-    let str = "";
-    for (let i = 1; i <= 9; i++) {
-        str += `${dan} x ${i} = ${dan * i}<br>`;
-    }
+  let str = '';
+  for (let i = 1; i <= 9; i += 1) {
+    str += `${dan} x ${i} = ${dan * i}<br>`;
+  }
 
-    return str;
+  return str;
 }
+
+window.onload = function () {
+  result = document.getElementById('result');
+  const btn = document.getElementById('btn');
+
+  btn.addEventListener('click', () => {
+    const input = parseInt(document.getElementById('num').value);
+
+    if (Number.isNaN(input)) {
+      alert('숫자를 입력해주세요.');
+    } else {
+      result.innerHTML = getGugudanStr(input);
+    }
+  });
+};

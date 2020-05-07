@@ -9,32 +9,34 @@
 // mousedown : 박스의 위치와 마우스 위치의 차이를 계산 후 저장(마우스 움직임에 따라 도형도 똑같이 움직이기 위함), 움직임 변수 true
 // mousemove : 움직임 변수가 true일 때 작동, 마우스 위치에 아까 계산한 차이를 빼고 이동(자연스러운 움직임)
 // mouseup : 이 때부터 박스가 움직이면 안되므로 움직임 변수 false
-var isMoving = false; // 박스가 움직여도 되는지 확인
-var box, mousePos;
+let isMoving = false; // 박스가 움직여도 되는지 확인
+let box;
+let mousePos;
 
 window.onload = function () {
-    box = document.getElementById("box");
-    mousePos = { x: 0, y: 0 };
+  box = document.getElementById('box');
+  mousePos = { x: 0, y: 0 };
 
-    box.style.left = "200px";
-    box.style.top = "100px";
+  box.style.left = '200px';
+  box.style.top = '100px';
 
-    box.addEventListener("mousedown", function (e) {
-        const left = box.style.left, top = box.style.top;
-        mousePos.x = e.clientX - parseInt(left.substr(0, left.length - 2));
-        mousePos.y = e.clientY - parseInt(top.substr(0, top.length - 2));
+  box.addEventListener('mousedown', (e) => {
+    const left = box.style.left;
+    const top = box.style.top;
+    mousePos.x = e.clientX - parseInt(left.substr(0, left.length - 2));
+    mousePos.y = e.clientY - parseInt(top.substr(0, top.length - 2));
 
-        isMoving = true;
-    });
+    isMoving = true;
+  });
 
-    box.addEventListener("mousemove", function (e) {
-        if (isMoving) {
-            box.style.left = `${e.clientX - mousePos.x}px`;
-            box.style.top = `${e.clientY - mousePos.y}px`;
-        }
-    });
+  box.addEventListener('mousemove', (e) => {
+    if (isMoving) {
+      box.style.left = `${e.clientX - mousePos.x}px`;
+      box.style.top = `${e.clientY - mousePos.y}px`;
+    }
+  });
 
-    box.addEventListener("mouseup", function () {
-        isMoving = false;
-    });
-}
+  box.addEventListener('mouseup', () => {
+    isMoving = false;
+  });
+};
