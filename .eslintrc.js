@@ -3,10 +3,12 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['eslint:recommended', 'airbnb-base'],
+  extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
+    React: true,
+    ReactDOM: true,
   },
   parserOptions: {
     ecmaVersion: 2018,
@@ -14,6 +16,7 @@ module.exports = {
   },
   rules: {
     'no-unused-vars': 'warn',
+    'no-var': 'warn',
     'linebreak-style': ['error', 'windows'],
   },
 };
